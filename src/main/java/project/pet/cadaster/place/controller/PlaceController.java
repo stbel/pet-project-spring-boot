@@ -33,34 +33,34 @@ public class PlaceController {
 	@CrossOrigin
 	@GetMapping("/index")
 	public List<PlaceMirrorResponseDTO> listPlace(PlaceFilterDTO filter) {
-		return null;
+		return service.listPlace(filter);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/find/{id}")
 	public PlaceMirrorResponseDTO findPlace(@PathVariable("id") Long placeId) {
-		return null;
+		return service.find(placeId);
 	}
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@CrossOrigin
 	@PostMapping("/create")
 	public PlaceMirrorResponseDTO createPlace(@Valid PlaceCreateDTO dto) {
-		return null;
+		return service.create(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@PutMapping("/change")
 	public PlaceMirrorResponseDTO changePlace(@Valid PlaceChangeDTO dto) {
-		return null;
+		return service.change(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@CrossOrigin
 	@DeleteMapping("/remove/{id}")
 	public void removePlace(@PathVariable("id") Long placeId) {
-
+		service.remove(placeId);
 	}
 }

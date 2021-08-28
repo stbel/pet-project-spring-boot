@@ -34,9 +34,9 @@ public class WorldService {
 		return dtoList;
 	}
 
-	public WorldMirrorResponseDTO find(Long personageId) {
+	public WorldMirrorResponseDTO find(Long worldId) {
 
-		Optional<World> optional = repository.findById(personageId);
+		Optional<World> optional = repository.findById(worldId);
 
 		if (optional.isEmpty()) {
 			return null;
@@ -55,8 +55,8 @@ public class WorldService {
 		return null;
 	}
 
-	public void remove(Long personageId) {
+	public void remove(Long worldId) {
 		
-		repository.deleteById(personageId);
+		repository.deleteById(worldId);
 	}
 }

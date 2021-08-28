@@ -28,39 +28,39 @@ public class StoryController {
 
 	@Autowired
 	private StoryService service;
-	
+
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/index")
 	public List<StoryMirrorResponseDTO> listStory(StoryFilterDTO filter) {
-		return null;
+		return service.listStory(filter);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/find/{id}")
 	public StoryMirrorResponseDTO findStory(@PathVariable("id") Long storyId) {
-		return null;
+		return service.find(storyId);
 	}
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@CrossOrigin
 	@PostMapping("/create")
 	public StoryMirrorResponseDTO createStory(@Valid StoryCreateDTO dto) {
-		return null;
+		return service.create(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@PutMapping("/change")
 	public StoryMirrorResponseDTO changeStory(@Valid StoryChangeDTO dto) {
-		return null;
+		return service.change(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@CrossOrigin
 	@DeleteMapping("/remove/{id}")
 	public void removeStory(@PathVariable("id") Long storyId) {
-
+		service.remove(storyId);
 	}
 }

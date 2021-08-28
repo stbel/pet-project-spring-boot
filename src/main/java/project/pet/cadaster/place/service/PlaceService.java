@@ -26,7 +26,7 @@ public class PlaceService {
 	private PlaceMirrorMapper mapper;
 
 	public List<PlaceMirrorResponseDTO> listPlace(PlaceFilterDTO filter) {
-		
+
 		List<Place> list = repository.findAll();
 
 		List<PlaceMirrorResponseDTO> dtoList = mapper.toRepresentation(list);
@@ -34,9 +34,9 @@ public class PlaceService {
 		return dtoList;
 	}
 
-	public PlaceMirrorResponseDTO find(Long personageId) {
+	public PlaceMirrorResponseDTO find(Long placeId) {
 
-		Optional<Place> optional = repository.findById(personageId);
+		Optional<Place> optional = repository.findById(placeId);
 
 		if (optional.isEmpty()) {
 			return null;
@@ -55,8 +55,8 @@ public class PlaceService {
 		return null;
 	}
 
-	public void remove(Long personageId) {
-		
-		repository.deleteById(personageId);
+	public void remove(Long placeId) {
+
+		repository.deleteById(placeId);
 	}
 }

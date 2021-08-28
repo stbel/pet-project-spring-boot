@@ -25,7 +25,7 @@ import project.pet.cadaster.world.transit.WorldMirrorResponseDTO;
 @RestController
 @RequestMapping("/world")
 public class WorldController {
-	
+
 	@Autowired
 	private WorldService service;
 
@@ -33,34 +33,34 @@ public class WorldController {
 	@CrossOrigin
 	@GetMapping("/index")
 	public List<WorldMirrorResponseDTO> listWorld(WorldFilterDTO filter) {
-		return null;
+		return service.listWorld(filter);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/find/{id}")
 	public WorldMirrorResponseDTO findWorld(@PathVariable("id") Long worldId) {
-		return null;
+		return service.find(worldId);
 	}
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@CrossOrigin
 	@PostMapping("/create")
 	public WorldMirrorResponseDTO createWorld(@Valid WorldCreateDTO dto) {
-		return null;
+		return service.create(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@PutMapping("/change")
 	public WorldMirrorResponseDTO changeWorld(@Valid WorldChangeDTO dto) {
-		return null;
+		return service.change(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@CrossOrigin
 	@DeleteMapping("/remove/{id}")
 	public void removeWorld(@PathVariable("id") Long worldId) {
-
+		service.remove(worldId);
 	}
 }

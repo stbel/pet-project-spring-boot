@@ -34,9 +34,9 @@ public class ArtifactService {
 		return dtoList;
 	}
 
-	public ArtifactMirrorResponseDTO find(Long personageId) {
+	public ArtifactMirrorResponseDTO find(Long artifactId) {
 
-		Optional<Artifact> optional = repository.findById(personageId);
+		Optional<Artifact> optional = repository.findById(artifactId);
 
 		if (optional.isEmpty()) {
 			return null;
@@ -55,8 +55,8 @@ public class ArtifactService {
 		return null;
 	}
 
-	public void remove(Long personageId) {
+	public void remove(Long artifactId) {
 
-		repository.deleteById(personageId);
+		repository.deleteById(artifactId);
 	}
 }

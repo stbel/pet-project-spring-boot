@@ -26,7 +26,7 @@ public class InstitutionService {
 	private InstitutionMirrorMapper mapper;
 
 	public List<InstitutionMirrorResponseDTO> listInstitution(InstitutionFilterDTO filter) {
-		
+
 		List<Institution> list = repository.findAll();
 
 		List<InstitutionMirrorResponseDTO> dtoList = mapper.toRepresentation(list);
@@ -34,9 +34,9 @@ public class InstitutionService {
 		return dtoList;
 	}
 
-	public InstitutionMirrorResponseDTO find(Long personageId) {
+	public InstitutionMirrorResponseDTO find(Long institutionId) {
 
-		Optional<Institution> optional = repository.findById(personageId);
+		Optional<Institution> optional = repository.findById(institutionId);
 
 		if (optional.isEmpty()) {
 			return null;
@@ -55,8 +55,8 @@ public class InstitutionService {
 		return null;
 	}
 
-	public void remove(Long personageId) {
-		
-		repository.deleteById(personageId);
+	public void remove(Long institutionId) {
+
+		repository.deleteById(institutionId);
 	}
 }

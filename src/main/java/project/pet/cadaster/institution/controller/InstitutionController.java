@@ -28,39 +28,39 @@ public class InstitutionController {
 
 	@Autowired
 	private InstitutionService service;
-	
+
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/index")
 	public List<InstitutionMirrorResponseDTO> listInstitution(InstitutionFilterDTO filter) {
-		return null;
+		return service.listInstitution(filter);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@GetMapping("/find/{id}")
 	public InstitutionMirrorResponseDTO findInstitution(@PathVariable("id") Long institutionId) {
-		return null;
+		return service.find(institutionId);
 	}
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@CrossOrigin
 	@PostMapping("/create")
 	public InstitutionMirrorResponseDTO createInstitution(@Valid InstitutionCreateDTO dto) {
-		return null;
+		return service.create(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@CrossOrigin
 	@PutMapping("/change")
 	public InstitutionMirrorResponseDTO changeInstitution(@Valid InstitutionChangeDTO dto) {
-		return null;
+		return service.change(dto);
 	}
 
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@CrossOrigin
 	@DeleteMapping("/remove/{id}")
 	public void removeInstitution(@PathVariable("id") Long institutionId) {
-
+		service.remove(institutionId);
 	}
 }

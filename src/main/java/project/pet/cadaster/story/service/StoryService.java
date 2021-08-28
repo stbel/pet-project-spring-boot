@@ -34,9 +34,9 @@ public class StoryService {
 		return dtoList;
 	}
 
-	public StoryMirrorResponseDTO find(Long personageId) {
+	public StoryMirrorResponseDTO find(Long storyId) {
 
-		Optional<Story> optional = repository.findById(personageId);
+		Optional<Story> optional = repository.findById(storyId);
 
 		if (optional.isEmpty()) {
 			return null;
@@ -55,8 +55,8 @@ public class StoryService {
 		return null;
 	}
 
-	public void remove(Long personageId) {
+	public void remove(Long storyId) {
 		
-		repository.deleteById(personageId);
+		repository.deleteById(storyId);
 	}
 }
